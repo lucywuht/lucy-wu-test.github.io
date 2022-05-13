@@ -32,7 +32,23 @@ body, html {
     
     
  <script src="https://cdn.kustomerapp.com/chat-web/widget.js" data-kustomer-api-key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzJmZWRjOWYyNWRjODM1N2YwNDY2MiIsInVzZXIiOiI2MjcyZmVkYzc5MTE0ODg3Mjk5YTA3ZTQiLCJvcmciOiI2MjY5OTk2NWNlYmUzNzRiMGQwYzMzOGUiLCJvcmdOYW1lIjoienp6LWx1Y3lzLWVzY2FwZS1yb29tcyIsInVzZXJUeXBlIjoibWFjaGluZSIsInBvZCI6InByb2QxIiwicm9sZXMiOlsib3JnLnRyYWNraW5nIl0sImF1ZCI6InVybjpjb25zdW1lciIsImlzcyI6InVybjphcGkiLCJzdWIiOiI2MjcyZmVkYzc5MTE0ODg3Mjk5YTA3ZTQifQ.hSK9yewwYkhxlmXwj-cyJClcICDjyHTfxM0918RXVDs' ></script> <script> Kustomer.start({ brandId: '626999693bd82811c470248e' }); </script>    
-            
+ // Create a conversation. This takes the user to the conversation thread but does not create the conversation in Kustomer.
+
+Kustomer.createConversation()
+
+// Create a conversation with a callback to run after a conversation has successfully been created in Kustomer.
+
+Kustomer.createConversation({
+  assistantId: "SOME_ASSISTANT_ID",  
+  message: "I need some help"
+},  
+function (response, error) => {
+  if (error) {
+    console.log("handle the error")
+  } else { 
+    console.log("handle the response")
+  }
+}         
     
 </body>
 </html>
